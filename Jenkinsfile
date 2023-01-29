@@ -18,6 +18,11 @@ pipeline {
         }
 
         stage('Create Tomcat Docker Image'){
+            agent {
+      	docker {
+        	image 'tomcat:8.0'
+        }
+      }
             steps {
                 sh "pwd"
                 sh "ls -a"
