@@ -3,6 +3,7 @@ pipeline {
      tools {
         maven 'LocalMaven'
         jdk 'LocalJDK'
+        docker 'LocalDocker'
     } 
     stages {
         stage('Build Application') {
@@ -18,11 +19,6 @@ pipeline {
         }
 
         stage('Create Tomcat Docker Image'){
-            agent {
-      	docker {
-        	image 'tomcat:8.0'
-        }
-      }
             steps {
                 sh "pwd"
                 sh "ls -a"
